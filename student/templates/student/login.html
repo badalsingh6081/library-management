@@ -1,0 +1,69 @@
+{% extends 'student/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Login</title>
+
+    {% endblock title %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'student/css/stylesignn.css' %}">
+{% endblock style %}
+
+
+
+{% block msg %}
+{% if messages %}
+{% for message in messages %}
+<small {% if messages.tags %} class="{{message.tags}}" {% endif %}>  <span class="{{message.tags}}" >{{ message }} </span>  </small>
+{% endfor %}
+{% endif %}
+{% endblock msg %}
+
+
+
+
+
+
+{% block content %}
+<div class="col-sm-12 menu">
+  <div>
+
+    <h1 class="lib">Library Management System</h1>
+  </div>
+
+<div class="main ">
+
+
+  <div>
+    <h1 class="sign">Login</h1>
+  </div>
+
+  <div>
+
+
+    <form action="" method="POST" >
+      {% csrf_token %}
+      {% if form.non_field_errors %}
+      {% for error in form.non_field_errors %}
+      <p>{{error}} </p>
+      {% endfor %}
+      {% endif %}
+      {% for fm in form %}
+      <div class="form-group">
+
+        <!-- {{fm.label_tag}} -->
+        {{fm}}
+        <small class="small">
+          
+          {{fm.errors|striptags}}
+        </small>
+      </div>
+      {% endfor %}
+      <button type="submit" class="btn btn-outline-info form-control">Login</button>
+    </form>
+  </div>
+</div>
+</div>
+
+{% endblock content %}

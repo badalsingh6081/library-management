@@ -1,0 +1,139 @@
+{% extends 'student/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    <title>Showbook</title>
+
+    {% endblock title %}
+
+{% block style %}
+
+<link rel="stylesheet" href="{% static 'book/css/styleshoww.css' %}">
+{% endblock style %}
+
+
+{% block msg %}
+{% if messages %}
+{% for message in messages %}
+<small {% if messages.tags %} class="{{message.tags}}" {% endif %}> <span class="{{message.tags}}" >{{ message }} </span> </small>
+{% endfor %}
+{% endif %}
+{% endblock msg %}
+
+{% block content %}
+<div class="col-sm-12 contain">
+    <div class="row m-0 p-0">
+        <div class="col-sm-12 heading">
+            <div>
+
+                <h1 class="head">Book Collection</h1>
+                <p class="para">Here You Find Incredible Collection of Books</p>
+            </div>
+            <div class=" side">
+                <div class="add ">
+                    <a href="{% url 'addbook' %}" class="btn btn-success mr-3">Add Book</a>
+                </div>
+                <div class="search">
+                    <a href="{% url 'searchauth' %}" class="btn btn-success ">Search Book</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row ">
+        <div class=" rows">
+            {% if page_obj is not None %}
+            {% for book in page_obj %}
+            <div class="first">
+                <div class="book">
+                    <h3>Book Details</h3>
+                </div>
+                <div>
+                    <span>Title : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{{book.title}}
+                </div>
+                <div>
+                    <span>Author : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{{book.author}}
+                </div>
+                <div>
+                    <span>Publisher : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{{book.publisher}}
+                </div>
+                <div>
+                    <span>Publish Date : &nbsp; &nbsp; &nbsp;</span>{{book.publish_date}}
+                </div>
+                <div>
+                    <span>Category :&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{{book.category}}
+                </div> <br>
+
+
+                <a href="{% url 'editbook' book.id %} " class="btn btn-outline-warning mt-2">Edit Book</a>
+
+                <form action="{% url 'deletebook' book.id %}">
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-outline-danger form-control mt-2" name="" value="Delete" id="">
+                </form>
+
+            </div>
+
+
+            {% endfor %}
+            {% endif %}
+
+
+            {% if bk is not None %}
+            {% for bk in page_obj %}
+            <div class="first">
+                <div class="book">
+                    <h3>Book Details</h3>
+                </div>
+                <div>
+                    <span>Title : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{{bk.title}}
+                </div>
+                <div>
+                    <span>Author : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{bk.author}}
+                </div>
+                <div>
+                    <span>Publisher : &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{{bk.publisher}}
+                </div>
+                <div>
+                    <span>Publish Date : &nbsp; &nbsp; &nbsp;</span>{{bk.publish_date}}
+                </div>
+                <div>
+                    <span>Category :&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </span>{{bk.category}}
+                </div> <br>
+
+
+                <a href="{% url 'editbook' bk.id %} " class="btn btn-outline-warning mt-2">Edit Book</a>
+
+                <form action="{% url 'deletebook' bk.id %}" method="POST">
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-outline-danger form-control mt-2" name="" value="Delete" id="">
+                </form>
+
+
+                {% endfor %}
+                {% endif %}
+
+
+            </div> <br> <br>
+        </div>
+
+
+
+
+        <div class="page">
+            <span>
+                {% if page_obj.has_previous %}
+                <a href="?page={{page_obj.previous_page_number}}">Previous</a>
+                {% endif %}
+                 <span>{{page_obj.number}}</span>
+                {% if page_obj.has_next %}
+                <a href="?page={{page_obj.next_page_number}}">Next</a>
+                {% endif %}
+            </span>
+        </div>
+
+    </div>
+</div>
+</div>
+
+{% endblock content %}

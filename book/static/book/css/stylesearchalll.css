@@ -1,0 +1,39 @@
+.navbar{
+    width: 100%;
+    background: #000;
+    color: antiquewhite;
+}
+body{
+    background: url(book1.jpg);
+    background-size: cover;
+    /* color: bisque; */
+}
+.main{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+    top: 200px;
+}
+.submain{
+    background:rgb(171, 188, 206);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+     padding: 10px;
+    border-radius: 14px;
+}
+.search{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-self: center;
+}
+.anchor{
+    margin-top: 10px;
+}
+.form{
+    margin-top: 20px;
+}
+
+ 

@@ -1,0 +1,44 @@
+body{
+    background: url(book1.jpg);
+    background-size: cover;
+    color: bisque;
+}
+.menu{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.lib{
+    margin-top: 70px;
+    font-size: 60px;
+    color: rgb(20, 204, 142);
+}
+.sign{
+    margin-top: 5px;
+    padding-bottom: 12px;
+}
+.main{  
+    margin-top: 70px;
+    padding:0 7px 8px 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(104, 99, 104);
+    border-radius: 12px;
+    box-sizing: border-box;
+    margin-bottom: 130px;
+}
+
+form{
+    width: 35vw;
+}
+input{
+    margin:8px 0;
+    background:transparent ;
+}
+.small{
+    color: red;
+}

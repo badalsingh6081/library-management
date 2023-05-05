@@ -1,0 +1,53 @@
+{% extends 'student/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Home</title>
+
+    {% endblock title %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'student/css/stylehome.css' %}">
+{% endblock style %}
+
+
+
+{% block msg %}
+{% if messages %}
+{% for message in messages %}
+<small {% if messages.tags %} class="{{message.tags}}" {% endif %}> <span class="{{message.tags}}">{{ message }} </span>
+</small>
+{% endfor %}
+{% endif %}
+{% endblock msg %}
+
+
+
+{% block content %}
+<div class="col-sm-12 main">
+    <div class=" row menu">
+
+        <div class="heading col-sm-5  ">
+            <div>
+
+                <h1>Welcome To My Library</h1>
+            </div>
+            <div>
+
+                <p>Traditional library content is organized into a few discrete objects for indexing purposes; common
+                    examples include books, sections in books, journals, and articles in journals</p>
+            </div>
+            <div class="exp">
+        
+                <span><a href="{% url 'showbook' %}" class="btn btn-outline-info form-control">Explore</a></span>
+            </div>
+        </div>
+        <div class="img col-sm-5 ">
+            <img src="{% static 'student/css/lib.jpg' %}" alt="" width="">
+        </div>
+
+    </div>
+
+
+</div>
+{% endblock content %}

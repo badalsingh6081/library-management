@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+}
+
+.navbar{
+    width: 100%;
+    background: #000;
+    color: antiquewhite;
+}
+.menu{
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    /* align-content: center; */
+}
+.heading{
+    align-self: flex-start;
+}
+.heading h1{
+    margin-top: 100px;
+    font-size: 70px;
+    font-family: 'sacramento';
+    font-weight: bold;
+    color: rgb(4, 129, 133);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+}
+div p{
+    font-family: 'sacramento';
+
+}
+.img{
+    align-self: flex-end;
+}
+.img img{
+    width: 40vw;
+    border-radius: 10px;
+}
+
+.exp{
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+}
+.exp span a{
+    font-weight: bold;
+    width: 200px;
+}
+    
